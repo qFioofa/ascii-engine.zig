@@ -1,4 +1,12 @@
-const Mask = @import("Mask.zig");
+const MaskModule = @import("Mask.zig");
+const Mask = MaskModule.Mask;
+
+const AnimationModule = @import("Animation.zig");
+const Animation = AnimationModule.Animation;
+
+const ColorModule = @import("Color.zig");
+const Color = ColorModule.Color;
+const ColorMap = ColorModule.ColorMap;
 
 const Types = @import("Types.zig");
 const Point2 = Types.Point2;
@@ -14,5 +22,7 @@ const Entity = struct {
     velocity: Point2,
     isDead: bool,
 
-    _currentFrame: usize,
+    animation: Animation,
+    preDraw: *const fn (*Entity) void,
+    afterDraw: *const fn (*Entity) void,
 };
