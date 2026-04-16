@@ -486,7 +486,7 @@ test "Entity.getCurrentFrame" {
 test "Entity.draw with visible entity" {
     var entity = Entity.initStatic(Point2{ .x = 0, .y = 0 }, Point3{ .x = 0, .y = 0, .z = 0 });
     entity.visible = true;
-    entity.isDead = false;
+    entity.dead = false;
 
     entity.draw();
 }
@@ -500,7 +500,7 @@ test "Entity.draw with hidden entity" {
 
 test "Entity.draw with dead entity" {
     var entity = Entity.initStatic(Point2{ .x = 0, .y = 0 }, Point3{ .x = 0, .y = 0, .z = 0 });
-    entity.isDead = true;
+    entity.dead = true;
 
     entity.draw();
 }
